@@ -1,0 +1,46 @@
+<h2>Players</h2>
+<div class="accordion" id="playersAccordion">
+	<% players.each(function(player){ %>
+	<div class="accordion-group">
+		<div class="accordion-heading clearfix">
+			<div class="link">
+				<%= player.get('lastName') %>, <%= player.get('firstName') %>
+			</div>
+			<div class="tools">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#playersAccordion" href="#collapse<%= player.get('id') %>"><i class="icon-list"></i> Matches</a>
+				<a class="player-tools" href="#player/<%= player.get('id') %>"><i class="icon-info-sign"></i>&nbsp;Information</a>
+                <a class="player-tools" href="#player/<%= player.get('id') %>/edit"><i class="icon-edit"></i>&nbsp;Edit</a>
+			</div>
+			<div class="short-info">
+				<%= player.get('playerClass') %><br/>
+				w: <span class="text-success">2</span> | l: <span class="text-error">1</span>
+			</div>
+		</div>
+		<div id="collapse<%= player.get('id') %>" class="accordion-body collapse">
+            <div class="accordion-inner">
+            <%
+            var playerId = player.get("id"),
+                playerMatches = matches.filter(function(match){
+                    return (match.get("t1").p1 === playerId || match.get("t2").p1 === playerId);
+                });
+
+            _.each(playerMatches, function(playerMatch){
+            %>
+
+            <div class="player-game-info">
+                <p>
+                    <b class="text-error">lost</b> <i>vs</i> <b>R.Federer</b>
+                </p>
+                <p>
+                    <a href="#match/<%= playerMatch.get('id') %>">3&ndash;<b>6</b> <b>6</b>&ndash;3 1&ndash;<b>6</b></a>
+                </p>
+                <p><%= playerMatch.get("date").replace(/\//g,".") %></p>
+                <p><%= playerMatch.get("note") %></p>
+            </div>
+
+            <% }); %>
+			</div>
+		</div>
+	</div>
+	<% }); %>
+</div>

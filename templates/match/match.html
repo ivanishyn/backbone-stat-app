@@ -1,0 +1,473 @@
+<% var p, pl1, pl2,
+p1 = match.get('t1').p1,
+p2 = match.get('t2').p1;
+if(p1 && p1 > 0){
+pl1 = players.where({"id": parseInt(p1)});
+}
+if(p2 && p2 > 0){
+pl2 = players.where({"id": parseInt(p2)});
+}%>
+<h2>Match #<%= match.get('id') %> details</h2>
+<div class="match-wrapper">
+<div class="tabbable">
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#matchEssential" data-toggle="tab"><i class="icon-align-justify"></i> Essential</a></li>
+	<li><a href="#matchDetailed" data-toggle="tab"><i class="icon-list"></i> Detailed</a></li>
+	<li><a href="#matchByShotType" data-toggle="tab"><i class="icon-globe"></i> By shot type</a></li>
+	<li><a href="#matchScoreLog" data-toggle="tab"><i class="icon-list-alt"></i> Score log</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="matchEssential">
+	<ul class="nav nav-pills">
+		<li class="active">
+			<a href="#nogo">Match</a>
+		</li>
+		<li><a href="#nogo">3&ndash;6</a></li>
+		<li><a href="#nogo">6&ndash;3</a></li>
+		<li><a href="#nogo">1&ndash;6</a></li>
+	</ul>
+	<div class="competitors clearfix">
+		<h3 class="competitor-first"><%= pl1[0].attributes.firstName %>&nbsp;<%= pl1[0].attributes.lastName %></h3>
+		<h3 class="competitor-second"><%= pl2[0].attributes.firstName %>&nbsp;<%= pl2[0].attributes.lastName %></h3>
+	</div>
+	<table class="table table-bordered table-match">
+		<tr class="warning">
+			<td class="heading" colspan="3">Service</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th>% 1st service</th>
+			<td>61%</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th><i class="icon-plus-sign"></i>&nbsp;Aces</th>
+			<td>61%</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th><i class="icon-remove-sign"></i>&nbsp;Double faults</th>
+			<td>61%</td>
+		</tr>
+		<tr class="warning">
+			<td class="heading" colspan="3">Points</td>
+		</tr>
+		<tr>
+			<td>
+				11<br/>
+				<small>1</small>&nbsp;&nbsp;<small>9</small>
+			</td>
+			<th>
+				<i class="icon-plus-sign"></i>&nbsp;Winners<br/>
+				<small>backhand</small>&nbsp;&nbsp;<small>forehand</small>
+			</th>
+			<td>
+				32<br/>
+				<small>9</small>&nbsp;&nbsp;<small>16</small>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				11<br/>
+				<small>4</small>&nbsp;&nbsp;<small>6</small>
+			</td>
+			<th>
+				<i class="icon-remove-sign"></i>&nbsp;Unforced errors<br/>
+				<small>backhand</small>&nbsp;&nbsp;<small>forehand</small>
+			</th>
+			<td>
+				11<br/>
+				<small>8</small>&nbsp;&nbsp;<small>2</small>
+			</td>
+		</tr>
+		<tr>
+			<td>34</td>
+			<th><i class="icon-plus-sign"></i>&nbsp;Aggressive margin</th>
+			<td>52</td>
+		</tr>
+		<tr class="warning">
+			<td class="heading" colspan="3">Conversion</td>
+		</tr>
+		<tr>
+			<td>65%</td>
+			<th>1st service pts won</th>
+			<td>92%</td>
+		</tr>
+		<tr>
+			<td>69%</td>
+			<th>2nd service pts won</th>
+			<td>62%</td>
+		</tr>
+		<tr>
+			<td>5/7</td>
+			<th>Net points</th>
+			<td>14/19</td>
+		</tr>
+		<tr>
+			<td>1/2</td>
+			<th>Break points</th>
+			<td>3/3</td>
+		</tr>
+	</table>
+</div>
+<div class="tab-pane" id="matchDetailed">
+	<ul class="nav nav-pills">
+		<li><a href="#nogo">Match</a></li>
+		<li><a href="#nogo">3&ndash;6</a></li>
+		<li><a href="#nogo">6&ndash;3</a></li>
+		<li class="active">
+			<a href="#nogo">1&ndash;6</a>
+		</li>
+	</ul>
+	<div class="competitors clearfix">
+		<h3 class="competitor-first"><%= pl1[0].attributes.firstName %>&nbsp;<%= pl1[0].attributes.lastName %></h3>
+		<h3 class="competitor-second"><%= pl2[0].attributes.firstName %>&nbsp;<%= pl2[0].attributes.lastName %></h3>
+	</div>
+	<table class="table table-bordered table-match">
+		<tr class="warning">
+			<td class="heading" colspan="3">Service</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th>% 1st service</th>
+			<td>61%</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th><i class="icon-plus-sign"></i>&nbsp;Aces</th>
+			<td>61%</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th><i class="icon-remove-sign"></i>&nbsp;Double faults</th>
+			<td>61%</td>
+		</tr>
+		<tr class="warning">
+			<td class="heading" colspan="3">Points</td>
+		</tr>
+		<tr>
+			<td>
+				11<br/>
+				<small>1</small>&nbsp;&nbsp;<small>9</small>
+			</td>
+			<th>
+				<i class="icon-plus-sign"></i>&nbsp;Winners<br/>
+				<small>backhand</small>&nbsp;&nbsp;<small>forehand</small>
+			</th>
+			<td>
+				32<br/>
+				<small>9</small>&nbsp;&nbsp;<small>16</small>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				11<br/>
+				<small>4</small>&nbsp;&nbsp;<small>6</small>
+			</td>
+			<th>
+				<i class="icon-remove-sign"></i>&nbsp;Unforced errors<br/>
+				<small>backhand</small>&nbsp;&nbsp;<small>forehand</small>
+			</th>
+			<td>
+				11<br/>
+				<small>8</small>&nbsp;&nbsp;<small>2</small>
+			</td>
+		</tr>
+		<tr>
+			<td>34</td>
+			<th><i class="icon-plus-sign"></i>&nbsp;Aggressive margin</th>
+			<td>52</td>
+		</tr>
+		<tr class="warning">
+			<td class="heading" colspan="3">Conversion</td>
+		</tr>
+		<tr>
+			<td>65%</td>
+			<th>1st service pts won</th>
+			<td>92%</td>
+		</tr>
+		<tr>
+			<td>69%</td>
+			<th>2nd service pts won</th>
+			<td>62%</td>
+		</tr>
+		<tr>
+			<td>5/7</td>
+			<th>Net points</th>
+			<td>14/19</td>
+		</tr>
+		<tr>
+			<td>1/2</td>
+			<th>Break points</th>
+			<td>3/3</td>
+		</tr>
+	</table>
+</div>
+<div class="tab-pane" id="matchByShotType">
+	<ul class="nav nav-pills">
+		<li><a href="#nogo">Match</a></li>
+		<li class="active">
+			<a href="#nogo">3&ndash;6</a>
+		</li>
+		<li><a href="#nogo">6&ndash;3</a></li>
+		<li><a href="#nogo">1&ndash;6</a></li>
+	</ul>
+	<div class="competitors clearfix">
+		<h3 class="competitor-first"><%= pl1[0].attributes.firstName %>&nbsp;<%= pl1[0].attributes.lastName %></h3>
+		<h3 class="competitor-second"><%= pl2[0].attributes.firstName %>&nbsp;<%= pl2[0].attributes.lastName %></h3>
+	</div>
+	<table class="table table-bordered table-match">
+		<tr class="warning">
+			<td class="heading" colspan="3">Service</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th>% 1st service</th>
+			<td>61%</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th><i class="icon-plus-sign"></i>&nbsp;Aces</th>
+			<td>61%</td>
+		</tr>
+		<tr>
+			<td>79%</td>
+			<th><i class="icon-remove-sign"></i>&nbsp;Double faults</th>
+			<td>61%</td>
+		</tr>
+		<tr class="warning">
+			<td class="heading" colspan="3">Points</td>
+		</tr>
+		<tr>
+			<td>
+				11<br/>
+				<small>1</small>&nbsp;&nbsp;<small>9</small>
+			</td>
+			<th>
+				<i class="icon-plus-sign"></i>&nbsp;Winners<br/>
+				<small>backhand</small>&nbsp;&nbsp;<small>forehand</small>
+			</th>
+			<td>
+				32<br/>
+				<small>9</small>&nbsp;&nbsp;<small>16</small>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				11<br/>
+				<small>4</small>&nbsp;&nbsp;<small>6</small>
+			</td>
+			<th>
+				<i class="icon-remove-sign"></i>&nbsp;Unforced errors<br/>
+				<small>backhand</small>&nbsp;&nbsp;<small>forehand</small>
+			</th>
+			<td>
+				11<br/>
+				<small>8</small>&nbsp;&nbsp;<small>2</small>
+			</td>
+		</tr>
+		<tr>
+			<td>34</td>
+			<th><i class="icon-plus-sign"></i>&nbsp;Aggressive margin</th>
+			<td>52</td>
+		</tr>
+		<tr class="warning">
+			<td class="heading" colspan="3">Conversion</td>
+		</tr>
+		<tr>
+			<td>65%</td>
+			<th>1st service pts won</th>
+			<td>92%</td>
+		</tr>
+		<tr>
+			<td>69%</td>
+			<th>2nd service pts won</th>
+			<td>62%</td>
+		</tr>
+		<tr>
+			<td>5/7</td>
+			<th>Net points</th>
+			<td>14/19</td>
+		</tr>
+		<tr>
+			<td>1/2</td>
+			<th>Break points</th>
+			<td>3/3</td>
+		</tr>
+	</table>
+</div>
+<div class="tab-pane" id="matchScoreLog">
+	<h3>Set #1</h3>
+	<div class="match-game">
+		<p>
+			<b class="muted">Game #1:</b> <b>0&ndash;0</b>
+		</p>
+		<p>
+			<b class="text-warning">Roger</b> <b>is serving</b>
+		</p>
+		<p>
+			15:0 <b class="text-warning">Roger</b> winner
+		</p>
+		<p>
+			30:0 <b class="text-warning">Roger</b> winner
+		</p>
+		<p>
+			40:0 <b class="text-warning">Roger</b> ace
+		</p>
+		<p>
+			+:- <b class="text-info">Rafael</b> return error
+		</p>
+		<p>
+			<b class="text-warning">Roger</b> <b>wins the game</b>
+		</p>
+	</div>
+	<div class="match-game">
+		<p>
+			<b class="muted">Game #2:</b> <b>0&ndash;1</b>
+		</p>
+		<p>
+			<b class="text-info">Rafael</b> <b>is serving</b>
+		</p>
+		<p>
+			15:0 <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			30:0 <b class="text-warning">Roger</b> unforced error
+		</p>
+		<p>
+			40:0 <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			+:- <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			<b class="text-info">Rafael</b> <b>wins the game</b>
+		</p>
+	</div>
+	<div class="match-game">
+		<p>
+			<b class="muted">Game #3:</b> <b>1&ndash;1</b>
+		</p>
+		<p>
+			<b class="text-warning">Roger</b> <b>is serving</b>
+		</p>
+		<p>
+			15:0 <b class="text-warning">Roger</b> ace
+		</p>
+		<p>
+			30:0 <b class="text-info">Rafael</b> forced error
+		</p>
+		<p>
+			30:15 <b class="text-warning">Roger</b> unforced error
+		</p>
+		<p>
+			40:15 <b class="text-warning">Roger</b> winner
+		</p>
+		<p>
+			+:- <b class="text-warning">Roger</b> winner
+		</p>
+		<p>
+			<b class="text-warning">Roger</b> <b>wins the game</b>
+		</p>
+	</div>
+	<div class="match-game">
+		<p>
+			<b class="muted">Game #4:</b> <b>1&ndash;2</b>
+		</p>
+		<p>
+			<b class="text-info">Rafael</b> <b>is serving</b>
+		</p>
+		<p>
+			15:0 <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			30:0 <b class="text-warning">Roger</b> unforced error
+		</p>
+		<p>
+			40:0 <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			+:- <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			<b class="text-info">Rafael</b> <b>wins the game</b>
+		</p>
+	</div>
+	<div class="match-game">
+		<p>
+			<b class="muted">Game #5:</b> <b>2&ndash;2</b>
+		</p>
+		<p>
+			<b class="text-warning">Roger</b> <b>is serving</b>
+		</p>
+		<p>
+			15:0 <b class="text-warning">Roger</b> ace
+		</p>
+		<p>
+			30:0 <b class="text-info">Rafael</b> forced error
+		</p>
+		<p>
+			40:0 <b class="text-warning">Roger</b> winner
+		</p>
+		<p>
+			+:- <b class="text-warning">Roger</b> winner
+		</p>
+		<p>
+			<b class="text-warning">Roger</b> <b>wins the game</b>
+		</p>
+	</div>
+	<div class="match-game">
+		<p>
+			<b class="muted">Game #6:</b> <b>2&ndash;3</b>
+		</p>
+		<p>
+			<b class="text-info">Rafael</b> <b>is serving</b>
+		</p>
+		<p>
+			15:0 <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			30:0 <b class="text-warning">Roger</b> unforced error
+		</p>
+		<p>
+			40:0 <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			+:- <b class="text-warning">Roger</b> return error
+		</p>
+		<p>
+			<b class="text-info">Rafael</b> <b>wins the game</b>
+		</p>
+	</div>
+	<div class="match-game">
+		<p>
+			<b class="muted">Game #7:</b> <b>3&ndash;3</b>
+		</p>
+		<p>
+			<b class="text-warning">Roger</b> <b>is serving</b>
+		</p>
+		<p>
+			15:0 <b class="text-warning">Roger</b> ace
+		</p>
+		<p>
+			30:0 <b class="text-info">Rafael</b> forced error
+		</p>
+		<p>
+			40:0 <b class="text-warning">Roger</b> winner
+		</p>
+		<p>
+			+:- <b class="text-warning">Roger</b> winner
+		</p>
+		<p>
+			<b class="text-warning">Roger</b> <b>wins the game</b>
+		</p>
+	</div>
+	<p>
+		<b>
+			<span class="muted">Set #1:</span> 3&ndash;6 for <span class="text-warning">Roger</span>
+		</b>
+	</p>
+</div>
+</div>
+</div>
+</div>

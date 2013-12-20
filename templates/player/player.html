@@ -1,0 +1,57 @@
+<h2><%= player.get('firstName') %> <%= player.get('lastName') %></h2>
+<h3>General information</h3>
+<table class="table table-bordered">
+    <tr>
+        <th>First name</th>
+        <td><%= player.get('firstName') %></td>
+    </tr>
+    <tr>
+        <th>Last name</th>
+        <td><%= player.get('lastName') %></td>
+    </tr>
+    <tr>
+        <th>Birth date</th>
+        <td><%= player.get('dateOfBirthday') %></td>
+    </tr>
+    <tr>
+        <th>Sex</th>
+        <td><%= player.get('playerSex') %></td>
+    </tr>
+    <tr>
+        <th>Class</th>
+        <td><%= player.get('playerClass') %></td>
+    </tr>
+    <tr>
+        <th>Handed</th>
+        <td><%= player.get('playerHanded') %></td>
+    </tr>
+    <tr>
+        <th><i>Note</i></th>
+        <td><%= player.get('playerNote') %></td>
+    </tr>
+</table>
+<a href="#player/<%= player.get('id') %>/edit" class="btn btn-large btn-warning">Edit player</a>
+
+<h3>Matches list</h3>
+<%
+var playerId = player.get("id"),
+    playerMatches = matches.filter(function(match){
+    return (match.get("t1").p1 === playerId || match.get("t2").p1 === playerId);
+});
+
+_.each(playerMatches, function(playerMatch){
+    var opponentId = playerMatch.get("t1").p1 === playerId ? playerMatch.get("t2").p1 : playerMatch.get("t1").p1,
+        opponentInfo = players.where({id: parseInt(opponentId)})[0];
+%>
+<div class="player-game-info">
+    <p>
+        <b class="text-error">lost</b> <i>vs</i> <b><%= opponentInfo.get("firstName").substring(0,1) %>.<%= opponentInfo.get("lastName") %></b>
+    </p>
+    <p>
+        <a href="#match/<%= playerMatch.get('id') %>">3&ndash;<b>6</b> <b>6</b>&ndash;3 1&ndash;<b>6</b></a>
+    </p>
+    <p><%= playerMatch.get("date").replace(/\//g,".") %></p>
+    <p><%= playerMatch.get("note") %></p>
+</div>
+
+<% }); %>

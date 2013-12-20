@@ -1,0 +1,29 @@
+<h2>Matches</h2>
+<table class="table table-bordered table-striped">
+	<tbody>
+	<% matches.each(function(match){ %>
+	<tr>
+		<td><i class="icon-calendar"></i> <%= match.get('date') %></td>
+		<td><%
+			var p, pl1, pl2,
+			p1 = match.get('t1').p1,
+			p2 = match.get('t2').p1;
+			if(p1 && p1 > 0){
+			pl1 = players.where({"id": parseInt(p1)});
+			}
+			if(p2 && p2 > 0){
+			pl2 = players.where({"id": parseInt(p2)});
+			}
+			if(pl1 || pl2){ %>
+			<i class="icon-list-alt"></i>&nbsp;<a href="#match/<%= match.get('id') %>"><%= pl1[0].attributes.firstName %>&nbsp;<%= pl1[0].attributes.lastName %> &nbsp;&ndash;&nbsp;<%= pl2[0].attributes.firstName %>&nbsp;<%= pl2[0].attributes.lastName %></a>
+			<br/>
+			3-<span class="text-success">6</span> <span class="text-success">6</span>-3 1-<span class="text-success">6</span>
+			<% } else { %>
+			<em class="text-error">No data available</em>
+			<% }%>
+		</td>
+		<td><%= match.get('note') %></td>
+	</tr>
+	<% }); %>
+	</tbody>
+</table>

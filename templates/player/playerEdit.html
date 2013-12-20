@@ -1,0 +1,34 @@
+<h2><%= player.get('firstName') %> <%= player.get('lastName') %></h2>
+<form>
+	<fieldset>
+		<legend>Player profile editing</legend>
+		<label>First name</label>
+		<input class="input-xlarge" type="text" value="<%= player.get('firstName') %>" placeholder="<%= player.get('firstName') %>" required>
+		<label>Last name</label>
+		<input class="input-xlarge" type="text" value="<%= player.get('lastName') %>" placeholder="<%= player.get('lastName') %>" required>
+		<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+			<div>
+				<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+				<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+			</div>
+		</div>
+		<div class="league">
+			<label>League</label>
+			<label class="radio inline">
+				<input type="radio" name="playerLeague" value="Other"> Other
+			</label>
+			<label class="radio inline">
+				<input type="radio" name="playerLeague" value="ATP" checked> ATP
+			</label>
+			<label class="radio inline">
+				<input type="radio" name="playerLeague" value="WTA"> WTA
+			</label>
+		</div>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-warning">Save changes</button>
+			<button type="reset" class="btn">Cancel</button>
+		</div>
+	</fieldset>
+</form>
